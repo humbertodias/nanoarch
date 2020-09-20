@@ -31,10 +31,13 @@ build/%.o: %.c Makefile
 -include $(addprefix build/,$(sources:.c=.d))
 
 
-CORE_NAME=snes9x
+CORE_NAME=mupen64plus_next
 core:
-	wget -O tmp.zip https://buildbot.libretro.com/nightly/linux/x86_64/latest/${CORE_NAME}_libretro.so.zip && \
+	wget -q -O tmp.zip https://buildbot.libretro.com/nightly/linux/x86_64/latest/${CORE_NAME}_libretro.so.zip && \
 	unzip -jo tmp.zip && rm tmp.zip
 
 rom:
-	wget -O rom-test.sfc "https://buildbot.libretro.com/assets/cores/Nintendo - Super Nintendo Entertainment System/240pSuite.sfc"
+	wget -q -O rom-test.z64 "https://buildbot.libretro.com/assets/cores/Nintendo - Nintendo 64/N64probe (Button Test) by MooglyGuy (PD).z64"
+
+test:
+	./nanoarch ./mupen64plus_next_libretro.so rom-test.z64

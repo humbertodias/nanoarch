@@ -1,6 +1,7 @@
 *.o
 *.so
 *.sfc
+*.z64
 build/
 /nanoarch
 
