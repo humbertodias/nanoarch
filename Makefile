@@ -30,6 +30,8 @@ build/%.o: %.c Makefile
 
 -include $(addprefix build/,$(sources:.c=.d))
 
+libretro-update:
+	wget -q -O libretro.h https://raw.githubusercontent.com/libretro/RetroArch/master/libretro-common/include/libretro.h
 
 CORE_NAME=mupen64plus_next
 core:
